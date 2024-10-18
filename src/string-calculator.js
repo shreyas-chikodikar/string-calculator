@@ -12,6 +12,7 @@ function add(numString) {
     numList.forEach((num) => {
       if (num.indexOf("\n") != -1) {
         sum += num.split("\n").reduce((tempSum, tempNum) => {
+          checkIfNum(tempNum);
           return tempSum + Number(tempNum);
         }, 0);
       } else {

@@ -36,6 +36,10 @@ describe("String Calculator", () => {
     expect(function () {
       add("1,a");
     }).toThrow();
+
+    expect(function () {
+      add("1\nb,3");
+    }).toThrow();
   });
 
   it("enable the function to handle new lines between numbers", () => {
