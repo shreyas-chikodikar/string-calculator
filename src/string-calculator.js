@@ -10,8 +10,14 @@ function add(numString) {
   } else {
     let sum = 0;
     numList.forEach((num) => {
-      checkIfNum(num);
-      sum += Number(num);
+      if (num.indexOf("\n") != -1) {
+        sum += num.split("\n").reduce((tempSum, tempNum) => {
+          return tempSum + Number(tempNum);
+        }, 0);
+      } else {
+        checkIfNum(num);
+        sum += Number(num);
+      }
     });
     return sum;
   }

@@ -37,4 +37,9 @@ describe("String Calculator", () => {
       add("1,a");
     }).toThrow();
   });
+
+  it("enable the function to handle new lines between numbers", () => {
+    expect(add("1\n2,3")).toBe(6);
+    expect(add("1,2\n4\n5,5,3\n1")).toBe(21);
+  });
 });
