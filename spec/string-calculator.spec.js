@@ -31,4 +31,10 @@ describe("String Calculator", () => {
     expect(add("1,2")).toBe(3);
     expect(add("1,2,3,4,5")).toBe(15);
   });
+
+  it("throws an error when one of the values is not a number", () => {
+    expect(function () {
+      add("1,a");
+    }).toThrow();
+  });
 });
