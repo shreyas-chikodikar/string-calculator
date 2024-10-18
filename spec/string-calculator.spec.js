@@ -15,9 +15,15 @@ describe("String Calculator", () => {
     expect(add("1")).toBe(1);
   });
 
-  it("throws an Error on incorrect input", () => {
+  it("throws an Error on incorrect type", () => {
     expect(function () {
       add(0);
+    }).toThrow();
+  });
+
+  it("throws an Error on incorrect value", () => {
+    expect(function () {
+      add("a");
     }).toThrow();
   });
 });
