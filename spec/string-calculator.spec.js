@@ -26,4 +26,8 @@ describe("String Calculator", () => {
       add("a");
     }).toThrow();
   });
+
+  it("returns sum when given input of 2 or more comma-seperated numbers", () => {
+    expect(add("1,2")).toBe(3);
+  });
 });
