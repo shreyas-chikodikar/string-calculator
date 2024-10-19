@@ -1,7 +1,7 @@
 function add(numString) {
   if (typeof numString !== "string") throw new Error("Not a string");
 
-  let numList = numString.split(",");
+  let numList = delimiterSplit(numString);
 
   if (numString === "") return 0;
   else if (numList.length == 1) {
@@ -26,4 +26,11 @@ function add(numString) {
 
 function checkIfNum(num) {
   if (isNaN(num)) throw new Error("Not a number string");
+}
+
+function delimiterSplit(numberString) {
+  if (numberString.slice(0, 2) == "//") {
+    const delimiter = numberString[2];
+    return numberString.slice(3).split(delimiter);
+  } else return numberString.split(",");
 }
