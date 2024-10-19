@@ -26,6 +26,7 @@ function add(numString) {
 
 function checkIfNum(num) {
   if (isNaN(num)) throw new Error("Not a number string");
+  if (num < 0) throw new Error("negative numbers not allowed:" + num);
 }
 
 function delimiterSplit(numberString) {

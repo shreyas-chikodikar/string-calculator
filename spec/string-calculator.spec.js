@@ -50,4 +50,10 @@ describe("String Calculator", () => {
   it("supports different delimiters", () => {
     expect(add("//;\n1;2")).toBe(3);
   });
+
+  it("throws error for negative number", () => {
+    expect(function () {
+      add("1,-2");
+    }).toThrowError("negative numbers not allowed:-2");
+  });
 });
