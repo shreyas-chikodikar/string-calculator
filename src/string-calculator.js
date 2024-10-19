@@ -18,9 +18,9 @@ function add(numString) {
       }
 
       if (num.indexOf("\n") != -1) {
-        sum += num.split("\n").reduce((tempSum, tempNum) => {
-          checkIfNum(tempNum);
-          return tempSum + Number(tempNum);
+        sum += num.split("\n").reduce((reducedSum, reducedNum) => {
+          checkIfNum(reducedNum);
+          return reducedSum + Number(reducedNum);
         }, 0);
       } else {
         checkIfNum(num);
@@ -29,6 +29,13 @@ function add(numString) {
     });
     return sum;
   }
+}
+
+function delimiterSplit(numberString) {
+  if (numberString.slice(0, 2) == "//") {
+    const delimiter = numberString[2];
+    return numberString.slice(3).split(delimiter);
+  } else return numberString.split(",");
 }
 
 function checkIfNum(num) {
@@ -45,11 +52,4 @@ function checkIfNegative(numberList) {
   });
   errorMsg = errorMsg.slice(0, -1);
   throw new Error(errorMsg);
-}
-
-function delimiterSplit(numberString) {
-  if (numberString.slice(0, 2) == "//") {
-    const delimiter = numberString[2];
-    return numberString.slice(3).split(delimiter);
-  } else return numberString.split(",");
 }
