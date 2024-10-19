@@ -13,19 +13,17 @@ function add(numString) {
   } else {
     let sum = 0;
     numList.forEach((num) => {
+      if (!isNaN(num) && Number(num) < 0) {
+        checkIfNegative(numList);
+      }
+
       if (num.indexOf("\n") != -1) {
         sum += num.split("\n").reduce((tempSum, tempNum) => {
           checkIfNum(tempNum);
-          if (num < 0) {
-            checkIfNegative(numList);
-          }
           return tempSum + Number(tempNum);
         }, 0);
       } else {
         checkIfNum(num);
-        if (num < 0) {
-          checkIfNegative(numList);
-        }
         sum += Number(num);
       }
     });
@@ -42,7 +40,7 @@ function checkIfNegative(numberList) {
   numberList.forEach((num) => {
     if (num < 0) errorMsg += num + ",";
   });
-  if (errorMsg.slice(-1) == ",") errorMsg = errorMsg.slice(0, -1);
+  errorMsg = errorMsg.slice(0, -1);
   throw new Error(errorMsg);
 }
 
