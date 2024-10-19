@@ -38,6 +38,9 @@ function checkIfNum(num) {
 function checkIfNegative(numberList) {
   let errorMsg = "negative numbers not allowed:";
   numberList.forEach((num) => {
+    if (num.indexOf("\n") != -1) {
+      num = num.replace(/\n/g, "");
+    }
     if (num < 0) errorMsg += num + ",";
   });
   errorMsg = errorMsg.slice(0, -1);

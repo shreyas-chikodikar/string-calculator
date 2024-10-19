@@ -65,5 +65,9 @@ describe("String Calculator", () => {
     expect(function () {
       add("-1,-2");
     }).toThrowError("negative numbers not allowed:-1,-2");
+
+    expect(function () {
+      add("-1\n,-2");
+    }).toThrowError("negative numbers not allowed:-1,-2");
   });
 });
