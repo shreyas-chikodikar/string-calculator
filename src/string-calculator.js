@@ -5,11 +5,24 @@ function add(numString) {
 
   if (numString === "") return 0;
   else if (numList.length == 1) {
-    checkIfNum(numList);
-    if (Number(numString) < 0) {
-      throw new Error("negative numbers not allowed:" + numString);
+    if (numString.indexOf("\n") != -1) {
+      let tempList = numString.split("\n");
+      let sum = 0;
+      tempList.forEach((num) => {
+        checkIfNum(num);
+        if (Number(num) < 0) {
+          checkIfNegative(tempList);
+        }
+        sum += Number(num);
+      });
+      return sum;
+    } else {
+      checkIfNum(numString);
+      if (Number(numString) < 0) {
+        throw new Error("negative numbers not allowed:" + numString);
+      }
+      return Number(numString);
     }
-    return Number(numString);
   } else {
     let sum = 0;
     numList.forEach((num) => {

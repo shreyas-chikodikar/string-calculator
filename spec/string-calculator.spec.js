@@ -45,6 +45,7 @@ describe("String Calculator", () => {
   it("enable the function to handle new lines between numbers", () => {
     expect(add("1\n2,3")).toBe(6);
     expect(add("1,2\n4\n5,5,3\n1")).toBe(21);
+    expect(add("1\n2")).toBe(3);
   });
 
   it("supports different delimiters", () => {
@@ -69,5 +70,9 @@ describe("String Calculator", () => {
     expect(function () {
       add("-1\n,-2");
     }).toThrowError("negative numbers not allowed:-1,-2");
+
+    expect(function () {
+      add("-1\n3");
+    }).toThrowError("negative numbers not allowed:-1");
   });
 });
