@@ -55,5 +55,15 @@ describe("String Calculator", () => {
     expect(function () {
       add("1,-2");
     }).toThrowError("negative numbers not allowed:-2");
+
+    expect(function () {
+      add("-2");
+    }).toThrowError("negative numbers not allowed:-2");
+  });
+
+  it("throws error message which mentions all negative delmiters", () => {
+    expect(function () {
+      add("-1,-2");
+    }).toThrowError("negative numbers not allowed:-1,-2");
   });
 });
