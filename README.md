@@ -1,2 +1,2 @@
 # string-calculator
-A Simple String Calculator Using TDD Kata. Built using Javascript and Jasmine.
+A Simple String Calculator TDD Kata. Built using Javascript and Jasmine.
